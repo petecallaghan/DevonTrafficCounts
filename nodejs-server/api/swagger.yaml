@@ -1,26 +1,31 @@
 ---
 swagger: "2.0"
 info:
-  description: "This is a simple API"
+  description: "This is a simple API to provide access to junction link vehicle counts.\
+    \ AADF figures are produced for each junction to junction link on the major road\
+    \ network for every year. An AADF is the average over a full year of the number\
+    \ of vehicles passing a point in the road network each day. Major roads include\
+    \ Motorway and A-class roads. For methodological reasons, the AADFs for different\
+    \ count points should not be added together."
   version: "1.0.0"
-  title: "Simple Inventory API"
+  title: "Junction Link Counts API"
   contact:
-    email: "you@your-company.com"
+    email: "wpete.callaghan@gmail.com"
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 host: "virtserver.swaggerhub.com"
 basePath: "/petecallaghan/DevonTrafficCounts/1.0.0"
 tags:
-- name: "developers"
-  description: "Operations available to developers"
+- name: "public"
+  description: "Public operations"
 schemes:
 - "https"
 paths:
   /junctionlinks:
     get:
       tags:
-      - "developers"
+      - "public"
       summary: "queries the database of junction links"
       description: "By passing in the appropriate options, you can query subsets of\
         \ the junction links, filtering the data set\n"
@@ -99,7 +104,7 @@ paths:
               $ref: "#/definitions/JunctionLink"
         400:
           description: "bad input parameter"
-      x-swagger-router-controller: "Developers"
+      x-swagger-router-controller: "Public"
 definitions:
   JunctionLink:
     type: "object"
@@ -149,10 +154,10 @@ definitions:
         example: "27"
       LinkLength_km:
         type: "number"
-        example: 6.70000000000000017763568394002504646778106689453125
+        example: 6.7
       LinkLength_miles:
         type: "number"
-        example: 4.160000000000000142108547152020037174224853515625
+        example: 4.16
       PedalCycles:
         type: "integer"
         format: "int32"
@@ -206,7 +211,7 @@ definitions:
         format: "int32"
         example: 53717
     example:
-      LinkLength_km: 6.70000000000000017763568394002504646778106689453125
+      LinkLength_km: 6.7
       Estimation_method: "Counted"
       AllHGVs: 7004
       PedalCycles: 0
@@ -215,7 +220,7 @@ definitions:
       V2AxleRigidHGV: 1854
       V6orMoreAxleArticHGV: 1630
       Northing: 112172
-      LinkLength_miles: 4.160000000000000142108547152020037174224853515625
+      LinkLength_miles: 4.16
       V3AxleRigidHGV: 398
       CarsTaxis: 41341
       LocalAuthority: "Devon"

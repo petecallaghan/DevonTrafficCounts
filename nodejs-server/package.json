@@ -1,7 +1,7 @@
 {
-  "name": "simple-inventory-api",
+  "name": "junction-link-counts-api",
   "version": "1.0.0",
-  "description": "This is a simple API",
+  "description": "This is a simple API to provide access to junction link vehicle counts. AADF figures are produced for each junction to junction link on the major road network for every year. An AADF is the average over a full year of the number of vehicles passing a point in the road network each day. Major roads include Motorway and A-class roads. For methodological reasons, the AADFs for different count points should not be added together.",
   "main": "index.js",
   "scripts": {
 	"prestart": "npm install",
