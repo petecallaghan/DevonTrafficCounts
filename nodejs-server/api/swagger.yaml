@@ -1,0 +1,235 @@
+---
+swagger: "2.0"
+info:
+  description: "This is a simple API"
+  version: "1.0.0"
+  title: "Simple Inventory API"
+  contact:
+    email: "you@your-company.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "virtserver.swaggerhub.com"
+basePath: "/petecallaghan/DevonTrafficCounts/1.0.0"
+tags:
+- name: "developers"
+  description: "Operations available to developers"
+schemes:
+- "https"
+paths:
+  /junctionlinks:
+    get:
+      tags:
+      - "developers"
+      summary: "queries the database of junction links"
+      description: "By passing in the appropriate options, you can query subsets of\
+        \ the junction links, filtering the data set\n"
+      operationId: "queryJunctions"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "skip"
+        in: "query"
+        description: "number of records to skip for pagination"
+        required: false
+        type: "integer"
+        minimum: 0
+        format: "int32"
+      - name: "limit"
+        in: "query"
+        description: "maximum number of records to return"
+        required: false
+        type: "integer"
+        maximum: 50
+        minimum: 0
+        format: "int32"
+      - name: "AADFYear"
+        in: "query"
+        description: "filter by year of junction link counts"
+        required: false
+        type: "integer"
+        format: "int32"
+      - name: "CP"
+        in: "query"
+        description: "filter by count point"
+        required: false
+        type: "integer"
+        format: "int32"
+      - name: "Estimation_method"
+        in: "query"
+        description: "filter by estimation method"
+        required: false
+        type: "string"
+      - name: "Region"
+        in: "query"
+        description: "filter by region"
+        required: false
+        type: "string"
+      - name: "LocalAuthority"
+        in: "query"
+        description: "filter by Local Authority"
+        required: false
+        type: "string"
+      - name: "Road"
+        in: "query"
+        description: "filter by Road"
+        required: false
+        type: "string"
+      - name: "RoadCategory"
+        in: "query"
+        description: "filter by Road Category"
+        required: false
+        type: "string"
+      - name: "StartJunction"
+        in: "query"
+        description: "filter by Start Junction"
+        required: false
+        type: "string"
+      - name: "EndJunction"
+        in: "query"
+        description: "filter by End Junction"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "query matching the criteria"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/JunctionLink"
+        400:
+          description: "bad input parameter"
+      x-swagger-router-controller: "Developers"
+definitions:
+  JunctionLink:
+    type: "object"
+    required:
+    - "EndJunction"
+    - "StartJunction"
+    properties:
+      AADFYear:
+        type: "integer"
+        format: "int32"
+        example: 2000
+      CP:
+        type: "integer"
+        format: "int32"
+        example: 6023
+      Estimation_method:
+        type: "string"
+        example: "Counted"
+      Estimation_method_detailed:
+        type: "string"
+        example: "Manual count"
+      Region:
+        type: "string"
+        example: "South West"
+      LocalAuthority:
+        type: "string"
+        example: "Devon"
+      Road:
+        type: "string"
+        example: "M5"
+      RoadCategory:
+        type: "string"
+        example: "TM"
+      Easting:
+        type: "integer"
+        format: "int32"
+        example: 303700
+      Northing:
+        type: "integer"
+        format: "int32"
+        example: 112172
+      StartJunction:
+        type: "string"
+        example: "28"
+      EndJunction:
+        type: "string"
+        example: "27"
+      LinkLength_km:
+        type: "number"
+        example: 6.7
+      LinkLength_miles:
+        type: "number"
+        example: 4.16
+      PedalCycles:
+        type: "integer"
+        format: "int32"
+        example: 0
+      Motorcycles:
+        type: "integer"
+        format: "int32"
+        example: 137
+      CarsTaxis:
+        type: "integer"
+        format: "int32"
+        example: 41341
+      BusesCoaches:
+        type: "integer"
+        format: "int32"
+        example: 384
+      LightGoodsVehicles:
+        type: "integer"
+        format: "int32"
+        example: 4851
+      V2AxleRigidHGV:
+        type: "integer"
+        format: "int32"
+        example: 1854
+      V3AxleRigidHGV:
+        type: "integer"
+        format: "int32"
+        example: 398
+      V4or5AxleRigidHGV:
+        type: "integer"
+        format: "int32"
+        example: 173
+      V3or4AxleArticHGV:
+        type: "integer"
+        format: "int32"
+        example: 1014
+      V5AxleArticHGV:
+        type: "integer"
+        format: "int32"
+        example: 1935
+      V6orMoreAxleArticHGV:
+        type: "integer"
+        format: "int32"
+        example: 1630
+      AllHGVs:
+        type: "integer"
+        format: "int32"
+        example: 7004
+      AllMotorVehicles:
+        type: "integer"
+        format: "int32"
+        example: 53717
+    example:
+      LinkLength_km: 6.7
+      Estimation_method: "Counted"
+      AllHGVs: 7004
+      PedalCycles: 0
+      LightGoodsVehicles: 4851
+      AADFYear: 2000
+      V2AxleRigidHGV: 1854
+      V6orMoreAxleArticHGV: 1630
+      Northing: 112172
+      LinkLength_miles: 4.16
+      V3AxleRigidHGV: 398
+      CarsTaxis: 41341
+      LocalAuthority: "Devon"
+      RoadCategory: "TM"
+      Road: "M5"
+      CP: 6023
+      AllMotorVehicles: 53717
+      V5AxleArticHGV: 1935
+      Estimation_method_detailed: "Manual count"
+      StartJunction: "28"
+      BusesCoaches: 384
+      EndJunction: "27"
+      Motorcycles: 137
+      V3or4AxleArticHGV: 1014
+      Region: "South West"
+      Easting: 303700
+      V4or5AxleRigidHGV: 173
