@@ -149,10 +149,10 @@ definitions:
         example: "27"
       LinkLength_km:
         type: "number"
-        example: 6.7
+        example: 6.70000000000000017763568394002504646778106689453125
       LinkLength_miles:
         type: "number"
-        example: 4.16
+        example: 4.160000000000000142108547152020037174224853515625
       PedalCycles:
         type: "integer"
         format: "int32"
@@ -206,7 +206,7 @@ definitions:
         format: "int32"
         example: 53717
     example:
-      LinkLength_km: 6.7
+      LinkLength_km: 6.70000000000000017763568394002504646778106689453125
       Estimation_method: "Counted"
       AllHGVs: 7004
       PedalCycles: 0
@@ -215,7 +215,7 @@ definitions:
       V2AxleRigidHGV: 1854
       V6orMoreAxleArticHGV: 1630
       Northing: 112172
-      LinkLength_miles: 4.16
+      LinkLength_miles: 4.160000000000000142108547152020037174224853515625
       V3AxleRigidHGV: 398
       CarsTaxis: 41341
       LocalAuthority: "Devon"
