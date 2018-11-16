@@ -111,7 +111,15 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/JunctionLink"
+      Meta:
+        $ref: "#/definitions/Meta"
     example:
+      Meta:
+        Query: "skip=1"
+        Total: 2
+        Skip: 0
+        Count: 2
+        Limit: 10
       JunctionLinks:
       - LinkLength_km: 6.70000000000000017763568394002504646778106689453125
         Estimation_method: "Counted"
@@ -167,6 +175,34 @@ definitions:
         Region: "South West"
         Easting: 303700
         V4or5AxleRigidHGV: 173
+  Meta:
+    type: "object"
+    properties:
+      Count:
+        type: "integer"
+        format: "int32"
+        example: 2
+      Total:
+        type: "integer"
+        format: "int32"
+        example: 2
+      Query:
+        type: "string"
+        example: "skip=1"
+      Skip:
+        type: "integer"
+        format: "int32"
+        example: 0
+      Limit:
+        type: "integer"
+        format: "int32"
+        example: 10
+    example:
+      Query: "skip=1"
+      Total: 2
+      Skip: 0
+      Count: 2
+      Limit: 10
   JunctionLink:
     type: "object"
     required:

@@ -22,6 +22,13 @@ exports.queryJunctions = function(skip,limit,aADFYear,cP,estimation_method,regio
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
+  "Meta" : {
+    "Query" : "skip=1",
+    "Total" : 2,
+    "Skip" : 0,
+    "Count" : 2,
+    "Limit" : 10
+  },
   "JunctionLinks" : [ {
     "LinkLength_km" : 6.7,
     "Estimation_method" : "Counted",
