@@ -7,84 +7,84 @@
  *
  * skip Integer number of records to skip for pagination (optional)
  * limit Integer maximum number of records to return (optional)
- * aADFYear Integer filter by year of junction link counts (optional)
- * cP Integer filter by count point (optional)
+ * aadfyear Integer filter by year of junction link counts (optional)
+ * cp Integer filter by count point (optional)
  * estimation_method String filter by estimation method (optional)
  * region String filter by region (optional)
- * localAuthority String filter by Local Authority (optional)
+ * localauthority String filter by Local Authority (optional)
  * road String filter by Road (optional)
- * roadCategory String filter by Road Category (optional)
- * startJunction String filter by Start Junction (optional)
- * endJunction String filter by End Junction (optional)
- * returns JunctionLinks
+ * roadcategory String filter by Road Category (optional)
+ * startjunction String filter by Start Junction (optional)
+ * endjunction String filter by End Junction (optional)
+ * returns junctionLinks
  **/
-exports.queryJunctions = function(skip,limit,aADFYear,cP,estimation_method,region,localAuthority,road,roadCategory,startJunction,endJunction) {
+exports.queryJunctions = function(skip,limit,aadfyear,cp,estimation_method,region,localauthority,road,roadcategory,startjunction,endjunction) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "Meta" : {
-    "Query" : "skip=1",
-    "Total" : 2,
-    "Skip" : 0,
-    "Count" : 2,
-    "Limit" : 10
+  "meta" : {
+    "total" : 2,
+    "query" : "skip=1",
+    "count" : 2,
+    "limit" : 10,
+    "skip" : 0
   },
-  "JunctionLinks" : [ {
-    "LinkLength_km" : 6.7,
-    "Estimation_method" : "Counted",
-    "AllHGVs" : 7004,
-    "PedalCycles" : 0,
-    "LightGoodsVehicles" : 4851,
-    "AADFYear" : 2000,
-    "V2AxleRigidHGV" : 1854,
-    "V6orMoreAxleArticHGV" : 1630,
-    "Northing" : 112172,
-    "LinkLength_miles" : 4.16,
-    "V3AxleRigidHGV" : 398,
-    "CarsTaxis" : 41341,
-    "LocalAuthority" : "Devon",
-    "RoadCategory" : "TM",
-    "Road" : "M5",
-    "CP" : 6023,
-    "AllMotorVehicles" : 53717,
-    "V5AxleArticHGV" : 1935,
-    "Estimation_method_detailed" : "Manual count",
-    "StartJunction" : "28",
-    "BusesCoaches" : 384,
-    "EndJunction" : "27",
-    "Motorcycles" : 137,
-    "V3or4AxleArticHGV" : 1014,
-    "Region" : "South West",
-    "Easting" : 303700,
-    "V4or5AxleRigidHGV" : 173
+  "junctionLinks" : [ {
+    "v6ormoreaxleartichgv" : 1630,
+    "allmotorvehicles" : 53717,
+    "v2axlerigidhgv" : 1854,
+    "roadcategory" : "TM",
+    "carstaxis" : 41341,
+    "northing" : 112172,
+    "v4or5axlerigidhgv" : 173,
+    "localauthority" : "Devon",
+    "road" : "M5",
+    "aadfyear" : 2000,
+    "v3or4axleartichgv" : 1014,
+    "easting" : 303700,
+    "linklength_miles" : 4.16,
+    "motorcycles" : 137,
+    "lightgoodsvehicles" : 4851,
+    "cp" : 6023,
+    "estimation_method_detailed" : "Manual count",
+    "v5axleartichgv" : 1935,
+    "linklength_km" : 6.7,
+    "endjunction" : "27",
+    "allhgvs" : 7004,
+    "estimation_method" : "Counted",
+    "pedalcycles" : 0,
+    "startjunction" : "28",
+    "v3axlerigidhgv" : 398,
+    "region" : "South West",
+    "busescoaches" : 384
   }, {
-    "LinkLength_km" : 6.7,
-    "Estimation_method" : "Counted",
-    "AllHGVs" : 7004,
-    "PedalCycles" : 0,
-    "LightGoodsVehicles" : 4851,
-    "AADFYear" : 2000,
-    "V2AxleRigidHGV" : 1854,
-    "V6orMoreAxleArticHGV" : 1630,
-    "Northing" : 112172,
-    "LinkLength_miles" : 4.16,
-    "V3AxleRigidHGV" : 398,
-    "CarsTaxis" : 41341,
-    "LocalAuthority" : "Devon",
-    "RoadCategory" : "TM",
-    "Road" : "M5",
-    "CP" : 6023,
-    "AllMotorVehicles" : 53717,
-    "V5AxleArticHGV" : 1935,
-    "Estimation_method_detailed" : "Manual count",
-    "StartJunction" : "28",
-    "BusesCoaches" : 384,
-    "EndJunction" : "27",
-    "Motorcycles" : 137,
-    "V3or4AxleArticHGV" : 1014,
-    "Region" : "South West",
-    "Easting" : 303700,
-    "V4or5AxleRigidHGV" : 173
+    "v6ormoreaxleartichgv" : 1630,
+    "allmotorvehicles" : 53717,
+    "v2axlerigidhgv" : 1854,
+    "roadcategory" : "TM",
+    "carstaxis" : 41341,
+    "northing" : 112172,
+    "v4or5axlerigidhgv" : 173,
+    "localauthority" : "Devon",
+    "road" : "M5",
+    "aadfyear" : 2000,
+    "v3or4axleartichgv" : 1014,
+    "easting" : 303700,
+    "linklength_miles" : 4.16,
+    "motorcycles" : 137,
+    "lightgoodsvehicles" : 4851,
+    "cp" : 6023,
+    "estimation_method_detailed" : "Manual count",
+    "v5axleartichgv" : 1935,
+    "linklength_km" : 6.7,
+    "endjunction" : "27",
+    "allhgvs" : 7004,
+    "estimation_method" : "Counted",
+    "pedalcycles" : 0,
+    "startjunction" : "28",
+    "v3axlerigidhgv" : 398,
+    "region" : "South West",
+    "busescoaches" : 384
   } ]
 };
     if (Object.keys(examples).length > 0) {
