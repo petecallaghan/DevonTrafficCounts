@@ -99,13 +99,74 @@ paths:
         200:
           description: "query matching the criteria"
           schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/JunctionLink"
+            $ref: "#/definitions/JunctionLinks"
         400:
           description: "bad input parameter"
       x-swagger-router-controller: "Public"
 definitions:
+  JunctionLinks:
+    type: "object"
+    properties:
+      JunctionLinks:
+        type: "array"
+        items:
+          $ref: "#/definitions/JunctionLink"
+    example:
+      JunctionLinks:
+      - LinkLength_km: 6.70000000000000017763568394002504646778106689453125
+        Estimation_method: "Counted"
+        AllHGVs: 7004
+        PedalCycles: 0
+        LightGoodsVehicles: 4851
+        AADFYear: 2000
+        V2AxleRigidHGV: 1854
+        V6orMoreAxleArticHGV: 1630
+        Northing: 112172
+        LinkLength_miles: 4.160000000000000142108547152020037174224853515625
+        V3AxleRigidHGV: 398
+        CarsTaxis: 41341
+        LocalAuthority: "Devon"
+        RoadCategory: "TM"
+        Road: "M5"
+        CP: 6023
+        AllMotorVehicles: 53717
+        V5AxleArticHGV: 1935
+        Estimation_method_detailed: "Manual count"
+        StartJunction: "28"
+        BusesCoaches: 384
+        EndJunction: "27"
+        Motorcycles: 137
+        V3or4AxleArticHGV: 1014
+        Region: "South West"
+        Easting: 303700
+        V4or5AxleRigidHGV: 173
+      - LinkLength_km: 6.70000000000000017763568394002504646778106689453125
+        Estimation_method: "Counted"
+        AllHGVs: 7004
+        PedalCycles: 0
+        LightGoodsVehicles: 4851
+        AADFYear: 2000
+        V2AxleRigidHGV: 1854
+        V6orMoreAxleArticHGV: 1630
+        Northing: 112172
+        LinkLength_miles: 4.160000000000000142108547152020037174224853515625
+        V3AxleRigidHGV: 398
+        CarsTaxis: 41341
+        LocalAuthority: "Devon"
+        RoadCategory: "TM"
+        Road: "M5"
+        CP: 6023
+        AllMotorVehicles: 53717
+        V5AxleArticHGV: 1935
+        Estimation_method_detailed: "Manual count"
+        StartJunction: "28"
+        BusesCoaches: 384
+        EndJunction: "27"
+        Motorcycles: 137
+        V3or4AxleArticHGV: 1014
+        Region: "South West"
+        Easting: 303700
+        V4or5AxleRigidHGV: 173
   JunctionLink:
     type: "object"
     required:
@@ -154,10 +215,10 @@ definitions:
         example: "27"
       LinkLength_km:
         type: "number"
-        example: 6.7
+        example: 6.70000000000000017763568394002504646778106689453125
       LinkLength_miles:
         type: "number"
-        example: 4.16
+        example: 4.160000000000000142108547152020037174224853515625
       PedalCycles:
         type: "integer"
         format: "int32"
@@ -211,7 +272,7 @@ definitions:
         format: "int32"
         example: 53717
     example:
-      LinkLength_km: 6.7
+      LinkLength_km: 6.70000000000000017763568394002504646778106689453125
       Estimation_method: "Counted"
       AllHGVs: 7004
       PedalCycles: 0
@@ -220,7 +281,7 @@ definitions:
       V2AxleRigidHGV: 1854
       V6orMoreAxleArticHGV: 1630
       Northing: 112172
-      LinkLength_miles: 4.16
+      LinkLength_miles: 4.160000000000000142108547152020037174224853515625
       V3AxleRigidHGV: 398
       CarsTaxis: 41341
       LocalAuthority: "Devon"
