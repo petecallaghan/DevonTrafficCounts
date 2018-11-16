@@ -9,6 +9,11 @@ To run the server, run:
 ```
 npm start
 ```
+To debug the server (on port 9229), run:
+
+```
+npm debug
+```
 
 To view the Swagger UI interface:
 
@@ -17,3 +22,13 @@ open http://localhost:8080/docs
 ```
 
 This project leverages the mega-awesome [swagger-tools](https://github.com/apigee-127/swagger-tools) middleware which does most all the work.
+
+To access the API: 
+
+```
+open http://localhost:8080/petecallaghan/DevonTrafficCounts/1.0.0/junctionlinks
+```
+
+Node installation details: 
+
+Found here: https://node-postgres.com/

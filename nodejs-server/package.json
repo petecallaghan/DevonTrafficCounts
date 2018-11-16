@@ -4,8 +4,9 @@
   "description": "This is a simple API to provide access to junction link vehicle counts. AADF figures are produced for each junction to junction link on the major road network for every year. An AADF is the average over a full year of the number of vehicles passing a point in the road network each day. Major roads include Motorway and A-class roads. For methodological reasons, the AADFs for different count points should not be added together.",
   "main": "index.js",
   "scripts": {
-	"prestart": "npm install",
-	"start": "node index.js"
+    "prestart": "npm install",
+    "start": "node index.js",
+    "debug": "node --nolazy --inspect-brk=9229 index.js"
   },
   "keywords": [
     "swagger"
@@ -15,6 +16,7 @@
   "dependencies": {
     "connect": "^3.2.0",
     "js-yaml": "^3.3.0",
+    "pg": "^7.6.1",
     "swagger-tools": "0.10.1"
   }
 }
