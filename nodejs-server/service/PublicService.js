@@ -16,9 +16,13 @@
  * roadcategory String filter by Road Category (optional)
  * startjunction String filter by Start Junction (optional)
  * endjunction String filter by End Junction (optional)
+ * mineasting Integer filter by minimum easting coordinate (optional)
+ * maxeasting Integer filter by maximum easting coordinate (optional)
+ * minnorthing Integer filter by minimum northing coordinate (optional)
+ * maxnorthing Integer filter by maximum northing coordinate (optional)
  * returns junctionLinks
  **/
-exports.queryJunctions = function(skip,limit,aadfyear,cp,estimation_method,region,localauthority,road,roadcategory,startjunction,endjunction) {
+exports.queryJunctions = function(skip,limit,aadfyear,cp,estimation_method,region,localauthority,road,roadcategory,startjunction,endjunction,mineasting,maxeasting,minnorthing,maxnorthing) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
