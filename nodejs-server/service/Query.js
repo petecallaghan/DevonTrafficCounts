@@ -23,7 +23,7 @@ function add(query, name, value){
 module.exports = class Query {
     constructor(skip, limit, aADFYear, cP,
         estimation_method, region, localAuthority, road, roadCategory, startJunction, 
-        endJunction){
+        endJunction, minEasting, maxEasting, minNorthing, maxNorthing){
         this.skip = valueOrDefault(skip, DefaultSkip);
         this.limit = valueOrDefault(limit, DefaultLimit);
         this.aADFYear = valueOrDefault(aADFYear, 0);
@@ -35,6 +35,10 @@ module.exports = class Query {
         this.roadCategory = valueOrDefault(roadCategory, '');
         this.startJunction = valueOrDefault(startJunction, '');
         this.endJunction = valueOrDefault(endJunction, '');
+        this.minEasting = valueOrDefault(minEasting, 0);
+        this.maxEasting = valueOrDefault(maxEasting, 0);
+        this.minNorthing = valueOrDefault(minNorthing, 0);
+        this.maxNorthing = valueOrDefault(maxNorthing, 0);
         this.qs = '';
     }
 

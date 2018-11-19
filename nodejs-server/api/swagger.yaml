@@ -95,6 +95,30 @@ paths:
         description: "filter by End Junction"
         required: false
         type: "string"
+      - name: "mineasting"
+        in: "query"
+        description: "filter by minimum easting coordinate"
+        required: false
+        type: "integer"
+        format: "int32"
+      - name: "maxeasting"
+        in: "query"
+        description: "filter by maximum easting coordinate"
+        required: false
+        type: "integer"
+        format: "int32"
+      - name: "minnorthing"
+        in: "query"
+        description: "filter by minimum northing coordinate"
+        required: false
+        type: "integer"
+        format: "int32"
+      - name: "maxnorthing"
+        in: "query"
+        description: "filter by maximum northing coordinate"
+        required: false
+        type: "integer"
+        format: "int32"
       responses:
         200:
           description: "query matching the criteria"

@@ -15,7 +15,11 @@ module.exports.queryJunctions = function queryJunctions (req, res, next) {
   var roadcategory = req.swagger.params['roadcategory'].value;
   var startjunction = req.swagger.params['startjunction'].value;
   var endjunction = req.swagger.params['endjunction'].value;
-  Public.queryJunctions(skip,limit,aadfyear,cp,estimation_method,region,localauthority,road,roadcategory,startjunction,endjunction)
+  var mineasting = req.swagger.params['mineasting'].value;
+  var maxeasting = req.swagger.params['maxeasting'].value;
+  var minnorthing = req.swagger.params['minnorthing'].value;
+  var maxnorthing = req.swagger.params['maxnorthing'].value;
+  Public.queryJunctions(skip,limit,aadfyear,cp,estimation_method,region,localauthority,road,roadcategory,startjunction,endjunction,mineasting,maxeasting,minnorthing,maxnorthing)
     .then(function (response) {
       utils.writeJson(res, response);
     })
