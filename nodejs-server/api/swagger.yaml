@@ -1,5 +1,5 @@
 ---
-swagger: "2.0"
+swagger: "3.0.0"
 info:
   description: "This is a simple API to provide access to junction link vehicle counts.\
     \ AADF figures are produced for each junction to junction link on the major road\
