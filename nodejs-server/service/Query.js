@@ -7,14 +7,26 @@ function valueOrDefault(value, defaultValue) {
   return value ? value : defaultValue;
 }
 
-function add(query, name, value){
+function add(query, name, value, operator){
     if (value){
         if (query) {
-            return ' and '+name+'='+value;
+            return '&'+name+operator+value;
         }
-        return name+'='+value;
+        return name+operator+value;
     }
     return '';
+}
+
+function addEqual(query, name, value){
+    return add(query, name, value, '=');
+}
+
+function addLessThan(query, name, value){
+    return add(query, name, value, '<=');
+}
+
+function addGreaterThan(query, name, value){
+    return add(query, name, value, '>=');
 }
 
 /**
@@ -47,15 +59,19 @@ module.exports = class Query {
             return this.qs;
         }
         var qs = ''
-        qs = qs + add(qs, 'aadfyear', this.aADFYear);
-        qs = qs + add(qs, 'cp', this.cP);
-        qs = qs + add(qs, 'estimation_method', this.estimation_method);
-        qs = qs + add(qs, 'region', this.region);
-        qs = qs + add(qs, 'localauthority', this.localAuthority);
-        qs = qs + add(qs, 'road', this.road);
-        qs = qs + add(qs, 'roadcategory', this.roadCategory);
-        qs = qs + add(qs, 'startjunction', this.startJunction);
-        qs = qs + add(qs, 'endjunction', this.endJunction);
+        qs = qs + addEqual(qs, 'aadfyear', this.aADFYear);
+        qs = qs + addEqual(qs, 'cp', this.cP);
+        qs = qs + addEqual(qs, 'estimation_method', this.estimation_method);
+        qs = qs + addEqual(qs, 'region', this.region);
+        qs = qs + addEqual(qs, 'localauthority', this.localAuthority);
+        qs = qs + addEqual(qs, 'road', this.road);
+        qs = qs + addEqual(qs, 'roadcategory', this.roadCategory);
+        qs = qs + addEqual(qs, 'startjunction', this.startJunction);
+        qs = qs + addEqual(qs, 'endjunction', this.endJunction);
+        qs = qs + addGreaterThan(qs, 'mineasting', this.minEasting);
+        qs = qs + addLessThan(qs, 'maxeasting', this.maxEasting);
+        qs = qs + addGreaterThan(qs, 'minnorthing', this.minNorthing);
+        qs = qs + addLessThan(qs, 'maxnorthing', this.maxNorthing);
         this.qs = qs;
         return qs;
     }
