@@ -21,6 +21,7 @@ tags:
   description: "Public operations"
 schemes:
 - "https"
+- "http"
 paths:
   /junctionlinks:
     get:
@@ -157,13 +158,13 @@ definitions:
         aadfyear: 2000
         v3or4axleartichgv: 1014
         easting: 303700
-        linklength_miles: 4.16
+        linklength_miles: 4.160000000000000142108547152020037174224853515625
         motorcycles: 137
         lightgoodsvehicles: 4851
         cp: 6023
         estimation_method_detailed: "Manual count"
         v5axleartichgv: 1935
-        linklength_km: 6.7
+        linklength_km: 6.70000000000000017763568394002504646778106689453125
         endjunction: "27"
         allhgvs: 7004
         estimation_method: "Counted"
@@ -184,13 +185,13 @@ definitions:
         aadfyear: 2000
         v3or4axleartichgv: 1014
         easting: 303700
-        linklength_miles: 4.16
+        linklength_miles: 4.160000000000000142108547152020037174224853515625
         motorcycles: 137
         lightgoodsvehicles: 4851
         cp: 6023
         estimation_method_detailed: "Manual count"
         v5axleartichgv: 1935
-        linklength_km: 6.7
+        linklength_km: 6.70000000000000017763568394002504646778106689453125
         endjunction: "27"
         allhgvs: 7004
         estimation_method: "Counted"
@@ -275,10 +276,10 @@ definitions:
         example: "27"
       linklength_km:
         type: "number"
-        example: 6.7
+        example: 6.70000000000000017763568394002504646778106689453125
       linklength_miles:
         type: "number"
-        example: 4.16
+        example: 4.160000000000000142108547152020037174224853515625
       pedalcycles:
         type: "integer"
         format: "int32"
@@ -344,13 +345,13 @@ definitions:
       aadfyear: 2000
       v3or4axleartichgv: 1014
       easting: 303700
-      linklength_miles: 4.16
+      linklength_miles: 4.160000000000000142108547152020037174224853515625
       motorcycles: 137
       lightgoodsvehicles: 4851
       cp: 6023
       estimation_method_detailed: "Manual count"
       v5axleartichgv: 1935
-      linklength_km: 6.7
+      linklength_km: 6.70000000000000017763568394002504646778106689453125
       endjunction: "27"
       allhgvs: 7004
       estimation_method: "Counted"
