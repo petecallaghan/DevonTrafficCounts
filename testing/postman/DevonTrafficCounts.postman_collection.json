@@ -1,0 +1,1213 @@
+{
+	"info": {
+		"_postman_id": "a567dcd1-18cb-440d-898b-736b689d354f",
+		"name": "DevonTrafficCounts",
+		"description": "Test the behaviour of the DevonTrafficCounts API\n\nJSON Schema generation courtesy of https://www.jsonschema.net/\n\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "When a well formed request is received by the server, then it will return data encoded as JSON with an HTTP status of 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46e8d0db-5a6d-415f-a363-030aa479cf86",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/petecallaghan/DevonTrafficCounts/1.0.0/junctionlinks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"petecallaghan",
+						"DevonTrafficCounts",
+						"1.0.0",
+						"junctionlinks"
+					]
+				},
+				"description": "When a well formed request is received by the server, then it will return data encoded as JSON with an HTTP status of 200"
+			},
+			"response": []
+		},
+		{
+			"name": "When an unsupported HTTP verb is received then the server responds with HTTP 405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46e8d0db-5a6d-415f-a363-030aa479cf86",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/petecallaghan/DevonTrafficCounts/1.0.0/junctionlinks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"petecallaghan",
+						"DevonTrafficCounts",
+						"1.0.0",
+						"junctionlinks"
+					]
+				},
+				"description": "When an unsupported HTTP verb is received then the server responds with HTTP 405"
+			},
+			"response": []
+		},
+		{
+			"name": "When an unsupported parameter is received by the server then it responds with 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46e8d0db-5a6d-415f-a363-030aa479cf86",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/petecallaghan/DevonTrafficCounts/1.0.0/junctionlinks?invalid_param=tosh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"petecallaghan",
+						"DevonTrafficCounts",
+						"1.0.0",
+						"junctionlinks"
+					],
+					"query": [
+						{
+							"key": "invalid_param",
+							"value": "tosh"
+						}
+					]
+				},
+				"description": "When an unsupported parameter is received by the server then it responds with 200"
+			},
+			"response": []
+		},
+		{
+			"name": "When a valid parameter is received with no value then the server responds with 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46e8d0db-5a6d-415f-a363-030aa479cf86",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/petecallaghan/DevonTrafficCounts/1.0.0/junctionlinks?Estimation_method=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"petecallaghan",
+						"DevonTrafficCounts",
+						"1.0.0",
+						"junctionlinks"
+					],
+					"query": [
+						{
+							"key": "Estimation_method",
+							"value": ""
+						}
+					]
+				},
+				"description": "When a valid parameter is received with no value then the server responds with 200"
+			},
+			"response": []
+		},
+		{
+			"name": "When a well formed request is received by the server, it will return all the fields from the data rows contained in the CSV file encoded as an array of JSON objects, each object corresponding to one row and each property name the same as the corresponding field name in the CSV",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46e8d0db-5a6d-415f-a363-030aa479cf86",
+						"exec": [
+							"",
+							"var schema = {",
+							"  \"definitions\": {},",
+							"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",",
+							"  \"$id\": \"http://example.com/root.json\",",
+							"  \"type\": \"object\",",
+							"  \"title\": \"The Root Schema\",",
+							"  \"required\": [",
+							"    \"meta\",",
+							"    \"junctionLinks\"",
+							"  ],",
+							"  \"properties\": {",
+							"    \"meta\": {",
+							"      \"$id\": \"#/properties/meta\",",
+							"      \"type\": \"object\",",
+							"      \"title\": \"The Meta Schema\",",
+							"      \"required\": [",
+							"        \"query\",",
+							"        \"total\",",
+							"        \"skip\",",
+							"        \"count\",",
+							"        \"limit\"",
+							"      ],",
+							"      \"properties\": {",
+							"        \"query\": {",
+							"          \"$id\": \"#/properties/meta/properties/query\",",
+							"          \"type\": \"string\",",
+							"          \"title\": \"The Query Schema\",",
+							"          \"default\": \"\",",
+							"          \"examples\": [",
+							"            \"\"",
+							"          ],",
+							"          \"pattern\": \"^(.*)$\"",
+							"        },",
+							"        \"total\": {",
+							"          \"$id\": \"#/properties/meta/properties/total\",",
+							"          \"type\": \"integer\",",
+							"          \"title\": \"The Total Schema\",",
+							"          \"default\": 0,",
+							"          \"examples\": [",
+							"            4142",
+							"          ]",
+							"        },",
+							"        \"skip\": {",
+							"          \"$id\": \"#/properties/meta/properties/skip\",",
+							"          \"type\": \"integer\",",
+							"          \"title\": \"The Skip Schema\",",
+							"          \"default\": 0,",
+							"          \"examples\": [",
+							"            0",
+							"          ]",
+							"        },",
+							"        \"count\": {",
+							"          \"$id\": \"#/properties/meta/properties/count\",",
+							"          \"type\": \"integer\",",
+							"          \"title\": \"The Count Schema\",",
+							"          \"default\": 0,",
+							"          \"examples\": [",
+							"            1",
+							"          ]",
+							"        },",
+							"        \"limit\": {",
+							"          \"$id\": \"#/properties/meta/properties/limit\",",
+							"          \"type\": \"integer\",",
+							"          \"title\": \"The Limit Schema\",",
+							"          \"default\": 0,",
+							"          \"examples\": [",
+							"            1",
+							"          ]",
+							"        }",
+							"      }",
+							"    },",
+							"    \"junctionLinks\": {",
+							"      \"$id\": \"#/properties/junctionLinks\",",
+							"      \"type\": \"array\",",
+							"      \"title\": \"The Junctionlinks Schema\",",
+							"      \"items\": {",
+							"        \"$id\": \"#/properties/junctionLinks/items\",",
+							"        \"type\": \"object\",",
+							"        \"title\": \"The Items Schema\",",
+							"        \"required\": [",
+							"          \"aadfyear\",",
+							"          \"cp\",",
+							"          \"estimation_method\",",
+							"          \"estimation_method_detailed\",",
+							"          \"region\",",
+							"          \"localauthority\",",
+							"          \"road\",",
+							"          \"roadcategory\",",
+							"          \"easting\",",
+							"          \"northing\",",
+							"          \"startjunction\",",
+							"          \"endjunction\",",
+							"          \"linklength_km\",",
+							"          \"linklength_miles\",",
+							"          \"pedalcycles\",",
+							"          \"motorcycles\",",
+							"          \"carstaxis\",",
+							"          \"busescoaches\",",
+							"          \"lightgoodsvehicles\",",
+							"          \"v2axlerigidhgv\",",
+							"          \"v3axlerigidhgv\",",
+							"          \"v4or5axlerigidhgv\",",
+							"          \"v3or4axleartichgv\",",
+							"          \"v5axleartichgv\",",
+							"          \"v6ormoreaxleartichgv\",",
+							"          \"allhgvs\",",
+							"          \"allmotorvehicles\"",
+							"        ],",
+							"        \"properties\": {",
+							"          \"aadfyear\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/aadfyear\",",
+							"            \"type\": \"integer\",",
+							"            \"title\": \"The Aadfyear Schema\",",
+							"            \"default\": 0,",
+							"            \"examples\": [",
+							"              2000",
+							"            ]",
+							"          },",
+							"          \"cp\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/cp\",",
+							"            \"type\": \"integer\",",
+							"            \"title\": \"The Cp Schema\",",
+							"            \"default\": 0,",
+							"            \"examples\": [",
+							"              6023",
+							"            ]",
+							"          },",
+							"          \"estimation_method\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/estimation_method\",",
+							"            \"type\": \"string\",",
+							"            \"title\": \"The Estimation_method Schema\",",
+							"            \"default\": \"\",",
+							"            \"examples\": [",
+							"              \"Counted\"",
+							"            ],",
+							"            \"pattern\": \"^(.*)$\"",
+							"          },",
+							"          \"estimation_method_detailed\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/estimation_method_detailed\",",
+							"            \"type\": \"string\",",
+							"            \"title\": \"The Estimation_method_detailed Schema\",",
+							"            \"default\": \"\",",
+							"            \"examples\": [",
+							"              \"Manual count\"",
+							"            ],",
+							"            \"pattern\": \"^(.*)$\"",
+							"          },",
+							"          \"region\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/region\",",
+							"            \"type\": \"string\",",
+							"            \"title\": \"The Region Schema\",",
+							"            \"default\": \"\",",
+							"            \"examples\": [",
+							"              \"South West\"",
+							"            ],",
+							"            \"pattern\": \"^(.*)$\"",
+							"          },",
+							"          \"localauthority\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/localauthority\",",
+							"            \"type\": \"string\",",
+							"            \"title\": \"The Localauthority Schema\",",
+							"            \"default\": \"\",",
+							"            \"examples\": [",
+							"              \"Devon\"",
+							"            ],",
+							"            \"pattern\": \"^(.*)$\"",
+							"          },",
+							"          \"road\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/road\",",
+							"            \"type\": \"string\",",
+							"            \"title\": \"The Road Schema\",",
+							"            \"default\": \"\",",
+							"            \"examples\": [",
+							"              \"M5\"",
+							"            ],",
+							"            \"pattern\": \"^(.*)$\"",
+							"          },",
+							"          \"roadcategory\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/roadcategory\",",
+							"            \"type\": \"string\",",
+							"            \"title\": \"The Roadcategory Schema\",",
+							"            \"default\": \"\",",
+							"            \"examples\": [",
+							"              \"TM\"",
+							"            ],",
+							"            \"pattern\": \"^(.*)$\"",
+							"          },",
+							"          \"easting\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/easting\",",
+							"            \"type\": \"integer\",",
+							"            \"title\": \"The Easting Schema\",",
+							"            \"default\": 0,",
+							"            \"examples\": [",
+							"              303700",
+							"            ]",
+							"          },",
+							"          \"northing\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/northing\",",
+							"            \"type\": \"integer\",",
+							"            \"title\": \"The Northing Schema\",",
+							"            \"default\": 0,",
+							"            \"examples\": [",
+							"              112172",
+							"            ]",
+							"          },",
+							"          \"startjunction\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/startjunction\",",
+							"            \"type\": \"string\",",
+							"            \"title\": \"The Startjunction Schema\",",
+							"            \"default\": \"\",",
+							"            \"examples\": [",
+							"              \"28\"",
+							"            ],",
+							"            \"pattern\": \"^(.*)$\"",
+							"          },",
+							"          \"endjunction\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/endjunction\",",
+							"            \"type\": \"string\",",
+							"            \"title\": \"The Endjunction Schema\",",
+							"            \"default\": \"\",",
+							"            \"examples\": [",
+							"              \"27\"",
+							"            ],",
+							"            \"pattern\": \"^(.*)$\"",
+							"          },",
+							"          \"linklength_km\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/linklength_km\",",
+							"            \"type\": \"string\",",
+							"            \"title\": \"The Linklength_km Schema\",",
+							"            \"default\": \"\",",
+							"            \"examples\": [",
+							"              \"6.7000\"",
+							"            ],",
+							"            \"pattern\": \"^(.*)$\"",
+							"          },",
+							"          \"linklength_miles\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/linklength_miles\",",
+							"            \"type\": \"string\",",
+							"            \"title\": \"The Linklength_miles Schema\",",
+							"            \"default\": \"\",",
+							"            \"examples\": [",
+							"              \"4.1600\"",
+							"            ],",
+							"            \"pattern\": \"^(.*)$\"",
+							"          },",
+							"          \"pedalcycles\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/pedalcycles\",",
+							"            \"type\": \"integer\",",
+							"            \"title\": \"The Pedalcycles Schema\",",
+							"            \"default\": 0,",
+							"            \"examples\": [",
+							"              0",
+							"            ]",
+							"          },",
+							"          \"motorcycles\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/motorcycles\",",
+							"            \"type\": \"integer\",",
+							"            \"title\": \"The Motorcycles Schema\",",
+							"            \"default\": 0,",
+							"            \"examples\": [",
+							"              137",
+							"            ]",
+							"          },",
+							"          \"carstaxis\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/carstaxis\",",
+							"            \"type\": \"integer\",",
+							"            \"title\": \"The Carstaxis Schema\",",
+							"            \"default\": 0,",
+							"            \"examples\": [",
+							"              41341",
+							"            ]",
+							"          },",
+							"          \"busescoaches\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/busescoaches\",",
+							"            \"type\": \"integer\",",
+							"            \"title\": \"The Busescoaches Schema\",",
+							"            \"default\": 0,",
+							"            \"examples\": [",
+							"              384",
+							"            ]",
+							"          },",
+							"          \"lightgoodsvehicles\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/lightgoodsvehicles\",",
+							"            \"type\": \"integer\",",
+							"            \"title\": \"The Lightgoodsvehicles Schema\",",
+							"            \"default\": 0,",
+							"            \"examples\": [",
+							"              4851",
+							"            ]",
+							"          },",
+							"          \"v2axlerigidhgv\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/v2axlerigidhgv\",",
+							"            \"type\": \"integer\",",
+							"            \"title\": \"The V2axlerigidhgv Schema\",",
+							"            \"default\": 0,",
+							"            \"examples\": [",
+							"              1854",
+							"            ]",
+							"          },",
+							"          \"v3axlerigidhgv\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/v3axlerigidhgv\",",
+							"            \"type\": \"integer\",",
+							"            \"title\": \"The V3axlerigidhgv Schema\",",
+							"            \"default\": 0,",
+							"            \"examples\": [",
+							"              398",
+							"            ]",
+							"          },",
+							"          \"v4or5axlerigidhgv\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/v4or5axlerigidhgv\",",
+							"            \"type\": \"integer\",",
+							"            \"title\": \"The V4or5axlerigidhgv Schema\",",
+							"            \"default\": 0,",
+							"            \"examples\": [",
+							"              173",
+							"            ]",
+							"          },",
+							"          \"v3or4axleartichgv\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/v3or4axleartichgv\",",
+							"            \"type\": \"integer\",",
+							"            \"title\": \"The V3or4axleartichgv Schema\",",
+							"            \"default\": 0,",
+							"            \"examples\": [",
+							"              1014",
+							"            ]",
+							"          },",
+							"          \"v5axleartichgv\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/v5axleartichgv\",",
+							"            \"type\": \"integer\",",
+							"            \"title\": \"The V5axleartichgv Schema\",",
+							"            \"default\": 0,",
+							"            \"examples\": [",
+							"              1935",
+							"            ]",
+							"          },",
+							"          \"v6ormoreaxleartichgv\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/v6ormoreaxleartichgv\",",
+							"            \"type\": \"integer\",",
+							"            \"title\": \"The V6ormoreaxleartichgv Schema\",",
+							"            \"default\": 0,",
+							"            \"examples\": [",
+							"              1630",
+							"            ]",
+							"          },",
+							"          \"allhgvs\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/allhgvs\",",
+							"            \"type\": \"integer\",",
+							"            \"title\": \"The Allhgvs Schema\",",
+							"            \"default\": 0,",
+							"            \"examples\": [",
+							"              7004",
+							"            ]",
+							"          },",
+							"          \"allmotorvehicles\": {",
+							"            \"$id\": \"#/properties/junctionLinks/items/properties/allmotorvehicles\",",
+							"            \"type\": \"integer\",",
+							"            \"title\": \"The Allmotorvehicles Schema\",",
+							"            \"default\": 0,",
+							"            \"examples\": [",
+							"              53717",
+							"            ]",
+							"          }",
+							"        }",
+							"      }",
+							"    }",
+							"  }",
+							"};",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+							"});",
+							"",
+							"pm.test('Data has more than 1 row', function() {",
+							"  pm.expect(pm.response.json().junctionLinks.length).to.be.above(1);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/petecallaghan/DevonTrafficCounts/1.0.0/junctionlinks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"petecallaghan",
+						"DevonTrafficCounts",
+						"1.0.0",
+						"junctionlinks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "When a well formed request is received by the server that defines a subset of rows with CSV file, then the server will return exactly the JSON encoded rows from within that subset, along with a JSON object containing the count of rows returned, the count of rows within the original subset, the count of rows in the full data set, a definition of the subset query, the index within the subset of the first row returned",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46e8d0db-5a6d-415f-a363-030aa479cf86",
+						"exec": [
+							"pm.test('Response includes correct count of rows', function() {",
+							"  pm.expect(pm.response.json().junctionLinks.length).to.eql(pm.response.json().meta.count);",
+							"});",
+							"",
+							"pm.test('Response skip is zero', function() {",
+							"  pm.expect(pm.response.json().meta.skip).to.eql(0);",
+							"});",
+							"",
+							"pm.test('Response limit is default', function() {",
+							"  pm.expect(pm.response.json().meta.limit).to.eql(10);",
+							"});",
+							"",
+							"pm.test('Response total is greater than the count', function() {",
+							"  pm.expect(pm.response.json().meta.total).to.be.above(pm.response.json().meta.count);",
+							"});",
+							"",
+							"pm.test('Response includes an empty query', function() {",
+							"  pm.expect(pm.response.json().meta.query).to.eql('');",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/petecallaghan/DevonTrafficCounts/1.0.0/junctionlinks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"petecallaghan",
+						"DevonTrafficCounts",
+						"1.0.0",
+						"junctionlinks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "When a well formed request is received by the server that defines an empty set of rows, then the server will return a response with an empty array of JSON objects",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46e8d0db-5a6d-415f-a363-030aa479cf86",
+						"exec": [
+							"pm.test('Response includes zero rows', function() {",
+							"  pm.expect(pm.response.json().junctionLinks.length).to.eql(0);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/petecallaghan/DevonTrafficCounts/1.0.0/junctionlinks?roadcategory=INVALID",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"petecallaghan",
+						"DevonTrafficCounts",
+						"1.0.0",
+						"junctionlinks"
+					],
+					"query": [
+						{
+							"key": "roadcategory",
+							"value": "INVALID"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "When a well formed request is received by the server that defines a set of rows, the the server will return the rows in the order defined by the original CSV file",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46e8d0db-5a6d-415f-a363-030aa479cf86",
+						"exec": [
+							"pm.test('Response[0] includes the first row of the CSV file', function() {",
+							"  pm.expect(pm.response.json().junctionLinks[0].cp).to.eql(6023);",
+							"  pm.expect(pm.response.json().junctionLinks[0].aadfyear).to.eql(2000);",
+							"});",
+							"",
+							"pm.test('Response[1] includes the second row of the CSV file', function() {",
+							"  pm.expect(pm.response.json().junctionLinks[1].cp).to.eql(6407);",
+							"  pm.expect(pm.response.json().junctionLinks[1].aadfyear).to.eql(2000);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/petecallaghan/DevonTrafficCounts/1.0.0/junctionlinks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"petecallaghan",
+						"DevonTrafficCounts",
+						"1.0.0",
+						"junctionlinks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "When a well formed request is received that defines the index within the row subset of the first required entry and a limit to the required number of rows to return, then the server will return the subset of rows within the subset, starting at the first index and limited by the specified number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46e8d0db-5a6d-415f-a363-030aa479cf86",
+						"exec": [
+							"",
+							"pm.test('Response[0] includes the second row of the CSV file', function() {",
+							"  pm.expect(pm.response.json().junctionLinks[0].cp).to.eql(6407);",
+							"  pm.expect(pm.response.json().junctionLinks[0].aadfyear).to.eql(2000);",
+							"});",
+							"",
+							"pm.test('Response includes just one row', function() {",
+							"  pm.expect(pm.response.json().junctionLinks.length).to.eql(1);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/petecallaghan/DevonTrafficCounts/1.0.0/junctionlinks?skip=1&limit=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"petecallaghan",
+						"DevonTrafficCounts",
+						"1.0.0",
+						"junctionlinks"
+					],
+					"query": [
+						{
+							"key": "skip",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "When a well formed request is received that filters aadfyear Then the first row with that value is returned",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46e8d0db-5a6d-415f-a363-030aa479cf86",
+						"exec": [
+							"",
+							"pm.test('Response[0] includes the first row of the subset', function() {",
+							"  pm.expect(pm.response.json().junctionLinks[0].cp).to.eql(6023);",
+							"  pm.expect(pm.response.json().junctionLinks[0].aadfyear).to.eql(2003);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/petecallaghan/DevonTrafficCounts/1.0.0/junctionlinks?aadfyear=2003",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"petecallaghan",
+						"DevonTrafficCounts",
+						"1.0.0",
+						"junctionlinks"
+					],
+					"query": [
+						{
+							"key": "aadfyear",
+							"value": "2003"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "When a well formed request is received that filters cp Then the first row with that value is returned",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46e8d0db-5a6d-415f-a363-030aa479cf86",
+						"exec": [
+							"",
+							"pm.test('Response[0] includes the first row of the subset', function() {",
+							"  pm.expect(pm.response.json().junctionLinks[0].cp).to.eql(7006);",
+							"  pm.expect(pm.response.json().junctionLinks[0].aadfyear).to.eql(2000);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/petecallaghan/DevonTrafficCounts/1.0.0/junctionlinks?cp=7006",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"petecallaghan",
+						"DevonTrafficCounts",
+						"1.0.0",
+						"junctionlinks"
+					],
+					"query": [
+						{
+							"key": "cp",
+							"value": "7006"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "When a well formed request is received that filters estimation_method Then the first row with that value is returned",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46e8d0db-5a6d-415f-a363-030aa479cf86",
+						"exec": [
+							"",
+							"pm.test('Response[0] includes the first row of the subset', function() {",
+							"  pm.expect(pm.response.json().junctionLinks[0].cp).to.eql(6409);",
+							"  pm.expect(pm.response.json().junctionLinks[0].aadfyear).to.eql(2000);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/petecallaghan/DevonTrafficCounts/1.0.0/junctionlinks?estimation_method=Estimated",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"petecallaghan",
+						"DevonTrafficCounts",
+						"1.0.0",
+						"junctionlinks"
+					],
+					"query": [
+						{
+							"key": "estimation_method",
+							"value": "Estimated"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "When a well formed request is received that filters region and localauthority Then the first row with that value is returned",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46e8d0db-5a6d-415f-a363-030aa479cf86",
+						"exec": [
+							"",
+							"pm.test('Response[0] includes the first row of the subset', function() {",
+							"  pm.expect(pm.response.json().junctionLinks[0].cp).to.eql(6409);",
+							"  pm.expect(pm.response.json().junctionLinks[0].aadfyear).to.eql(2000);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/petecallaghan/DevonTrafficCounts/1.0.0/junctionlinks?estimation_method=Estimated",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"petecallaghan",
+						"DevonTrafficCounts",
+						"1.0.0",
+						"junctionlinks"
+					],
+					"query": [
+						{
+							"key": "estimation_method",
+							"value": "Estimated"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "When a well formed request is received that filters road and roadcategory Then the first row with that value is returned",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46e8d0db-5a6d-415f-a363-030aa479cf86",
+						"exec": [
+							"",
+							"pm.test('Response[0] includes the first row of the subset', function() {",
+							"  pm.expect(pm.response.json().junctionLinks[0].cp).to.eql(6972);",
+							"  pm.expect(pm.response.json().junctionLinks[0].aadfyear).to.eql(2000);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/petecallaghan/DevonTrafficCounts/1.0.0/junctionlinks?road=A358&roadcategory=PA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"petecallaghan",
+						"DevonTrafficCounts",
+						"1.0.0",
+						"junctionlinks"
+					],
+					"query": [
+						{
+							"key": "road",
+							"value": "A358"
+						},
+						{
+							"key": "roadcategory",
+							"value": "PA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "When a well formed request is received that filters start and end junctions Then the first row with that value is returned",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46e8d0db-5a6d-415f-a363-030aa479cf86",
+						"exec": [
+							"",
+							"pm.test('Response[0] includes the first row of the subset', function() {",
+							"  pm.expect(pm.response.json().junctionLinks[0].cp).to.eql(6407);",
+							"  pm.expect(pm.response.json().junctionLinks[0].aadfyear).to.eql(2000);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/petecallaghan/DevonTrafficCounts/1.0.0/junctionlinks?startjunction=Sannerville Way Rndbt&endjunction=Glasshouse Lane",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"petecallaghan",
+						"DevonTrafficCounts",
+						"1.0.0",
+						"junctionlinks"
+					],
+					"query": [
+						{
+							"key": "startjunction",
+							"value": "Sannerville Way Rndbt"
+						},
+						{
+							"key": "endjunction",
+							"value": "Glasshouse Lane"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "When a well formed request is received that filters location Then the first row with that value is returned",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46e8d0db-5a6d-415f-a363-030aa479cf86",
+						"exec": [
+							"",
+							"pm.test('Response[0] includes the first row of the subset', function() {",
+							"  pm.expect(pm.response.json().junctionLinks[0].cp).to.eql(6418);",
+							"  pm.expect(pm.response.json().junctionLinks[0].aadfyear).to.eql(2000);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/petecallaghan/DevonTrafficCounts/1.0.0/junctionlinks?mineasting=1005&maxeasting=300100&minnorthing=99000&maxnorthing=200001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"petecallaghan",
+						"DevonTrafficCounts",
+						"1.0.0",
+						"junctionlinks"
+					],
+					"query": [
+						{
+							"key": "mineasting",
+							"value": "1005"
+						},
+						{
+							"key": "maxeasting",
+							"value": "300100"
+						},
+						{
+							"key": "minnorthing",
+							"value": "99000"
+						},
+						{
+							"key": "maxnorthing",
+							"value": "200001"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "d3ac21fc-49f7-444f-ae92-28762d380838",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3a4bcf86-1053-4bc5-be0f-4b61fe7315d4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

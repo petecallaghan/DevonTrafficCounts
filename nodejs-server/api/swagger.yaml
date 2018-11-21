@@ -1,0 +1,361 @@
+---
+swagger: "2.0"
+info:
+  description: "This is a simple API to provide access to junction link vehicle counts.\
+    \ AADF figures are produced for each junction to junction link on the major road\
+    \ network for every year. An AADF is the average over a full year of the number\
+    \ of vehicles passing a point in the road network each day. Major roads include\
+    \ Motorway and A-class roads. For methodological reasons, the AADFs for different\
+    \ count points should not be added together."
+  version: "1.0.0"
+  title: "Junction Link Counts API"
+  contact:
+    email: "wpete.callaghan@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "virtserver.swaggerhub.com"
+basePath: "/petecallaghan/DevonTrafficCounts/1.0.0"
+tags:
+- name: "public"
+  description: "Public operations"
+schemes:
+- "https"
+paths:
+  /junctionlinks:
+    get:
+      tags:
+      - "public"
+      summary: "queries the database of junction links"
+      description: "By passing in the appropriate options, you can query subsets of\
+        \ the junction links, filtering the data set\n"
+      operationId: "queryJunctions"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "skip"
+        in: "query"
+        description: "number of records to skip for pagination"
+        required: false
+        type: "integer"
+        minimum: 0
+        format: "int32"
+      - name: "limit"
+        in: "query"
+        description: "maximum number of records to return"
+        required: false
+        type: "integer"
+        maximum: 50
+        minimum: 0
+        format: "int32"
+      - name: "aadfyear"
+        in: "query"
+        description: "filter by year of junction link counts"
+        required: false
+        type: "integer"
+        format: "int32"
+      - name: "cp"
+        in: "query"
+        description: "filter by count point"
+        required: false
+        type: "integer"
+        format: "int32"
+      - name: "estimation_method"
+        in: "query"
+        description: "filter by estimation method"
+        required: false
+        type: "string"
+      - name: "region"
+        in: "query"
+        description: "filter by region"
+        required: false
+        type: "string"
+      - name: "localauthority"
+        in: "query"
+        description: "filter by Local Authority"
+        required: false
+        type: "string"
+      - name: "road"
+        in: "query"
+        description: "filter by Road"
+        required: false
+        type: "string"
+      - name: "roadcategory"
+        in: "query"
+        description: "filter by Road Category"
+        required: false
+        type: "string"
+      - name: "startjunction"
+        in: "query"
+        description: "filter by Start Junction"
+        required: false
+        type: "string"
+      - name: "endjunction"
+        in: "query"
+        description: "filter by End Junction"
+        required: false
+        type: "string"
+      - name: "mineasting"
+        in: "query"
+        description: "filter by minimum easting coordinate"
+        required: false
+        type: "integer"
+        format: "int32"
+      - name: "maxeasting"
+        in: "query"
+        description: "filter by maximum easting coordinate"
+        required: false
+        type: "integer"
+        format: "int32"
+      - name: "minnorthing"
+        in: "query"
+        description: "filter by minimum northing coordinate"
+        required: false
+        type: "integer"
+        format: "int32"
+      - name: "maxnorthing"
+        in: "query"
+        description: "filter by maximum northing coordinate"
+        required: false
+        type: "integer"
+        format: "int32"
+      responses:
+        200:
+          description: "query matching the criteria"
+          schema:
+            $ref: "#/definitions/junctionLinks"
+        400:
+          description: "bad input parameter"
+      x-swagger-router-controller: "Public"
+definitions:
+  junctionLinks:
+    type: "object"
+    properties:
+      meta:
+        $ref: "#/definitions/meta"
+      junctionLinks:
+        type: "array"
+        items:
+          $ref: "#/definitions/junctionLink"
+    example:
+      meta:
+        total: 2
+        query: "skip=1"
+        count: 2
+        limit: 10
+        skip: 0
+      junctionLinks:
+      - v6ormoreaxleartichgv: 1630
+        allmotorvehicles: 53717
+        v2axlerigidhgv: 1854
+        roadcategory: "TM"
+        carstaxis: 41341
+        northing: 112172
+        v4or5axlerigidhgv: 173
+        localauthority: "Devon"
+        road: "M5"
+        aadfyear: 2000
+        v3or4axleartichgv: 1014
+        easting: 303700
+        linklength_miles: 4.160000000000000142108547152020037174224853515625
+        motorcycles: 137
+        lightgoodsvehicles: 4851
+        cp: 6023
+        estimation_method_detailed: "Manual count"
+        v5axleartichgv: 1935
+        linklength_km: 6.70000000000000017763568394002504646778106689453125
+        endjunction: "27"
+        allhgvs: 7004
+        estimation_method: "Counted"
+        pedalcycles: 0
+        startjunction: "28"
+        v3axlerigidhgv: 398
+        region: "South West"
+        busescoaches: 384
+      - v6ormoreaxleartichgv: 1630
+        allmotorvehicles: 53717
+        v2axlerigidhgv: 1854
+        roadcategory: "TM"
+        carstaxis: 41341
+        northing: 112172
+        v4or5axlerigidhgv: 173
+        localauthority: "Devon"
+        road: "M5"
+        aadfyear: 2000
+        v3or4axleartichgv: 1014
+        easting: 303700
+        linklength_miles: 4.160000000000000142108547152020037174224853515625
+        motorcycles: 137
+        lightgoodsvehicles: 4851
+        cp: 6023
+        estimation_method_detailed: "Manual count"
+        v5axleartichgv: 1935
+        linklength_km: 6.70000000000000017763568394002504646778106689453125
+        endjunction: "27"
+        allhgvs: 7004
+        estimation_method: "Counted"
+        pedalcycles: 0
+        startjunction: "28"
+        v3axlerigidhgv: 398
+        region: "South West"
+        busescoaches: 384
+  meta:
+    type: "object"
+    properties:
+      count:
+        type: "integer"
+        format: "int32"
+        example: 2
+      total:
+        type: "integer"
+        format: "int32"
+        example: 2
+      query:
+        type: "string"
+        example: "skip=1"
+      skip:
+        type: "integer"
+        format: "int32"
+        example: 0
+      limit:
+        type: "integer"
+        format: "int32"
+        example: 10
+    example:
+      total: 2
+      query: "skip=1"
+      count: 2
+      limit: 10
+      skip: 0
+  junctionLink:
+    type: "object"
+    required:
+    - "endjunction"
+    - "startjunction"
+    properties:
+      aadfyear:
+        type: "integer"
+        format: "int32"
+        example: 2000
+      cp:
+        type: "integer"
+        format: "int32"
+        example: 6023
+      estimation_method:
+        type: "string"
+        example: "Counted"
+      estimation_method_detailed:
+        type: "string"
+        example: "Manual count"
+      region:
+        type: "string"
+        example: "South West"
+      localauthority:
+        type: "string"
+        example: "Devon"
+      road:
+        type: "string"
+        example: "M5"
+      roadcategory:
+        type: "string"
+        example: "TM"
+      easting:
+        type: "integer"
+        format: "int32"
+        example: 303700
+      northing:
+        type: "integer"
+        format: "int32"
+        example: 112172
+      startjunction:
+        type: "string"
+        example: "28"
+      endjunction:
+        type: "string"
+        example: "27"
+      linklength_km:
+        type: "number"
+        example: 6.70000000000000017763568394002504646778106689453125
+      linklength_miles:
+        type: "number"
+        example: 4.160000000000000142108547152020037174224853515625
+      pedalcycles:
+        type: "integer"
+        format: "int32"
+        example: 0
+      motorcycles:
+        type: "integer"
+        format: "int32"
+        example: 137
+      carstaxis:
+        type: "integer"
+        format: "int32"
+        example: 41341
+      busescoaches:
+        type: "integer"
+        format: "int32"
+        example: 384
+      lightgoodsvehicles:
+        type: "integer"
+        format: "int32"
+        example: 4851
+      v2axlerigidhgv:
+        type: "integer"
+        format: "int32"
+        example: 1854
+      v3axlerigidhgv:
+        type: "integer"
+        format: "int32"
+        example: 398
+      v4or5axlerigidhgv:
+        type: "integer"
+        format: "int32"
+        example: 173
+      v3or4axleartichgv:
+        type: "integer"
+        format: "int32"
+        example: 1014
+      v5axleartichgv:
+        type: "integer"
+        format: "int32"
+        example: 1935
+      v6ormoreaxleartichgv:
+        type: "integer"
+        format: "int32"
+        example: 1630
+      allhgvs:
+        type: "integer"
+        format: "int32"
+        example: 7004
+      allmotorvehicles:
+        type: "integer"
+        format: "int32"
+        example: 53717
+    example:
+      v6ormoreaxleartichgv: 1630
+      allmotorvehicles: 53717
+      v2axlerigidhgv: 1854
+      roadcategory: "TM"
+      carstaxis: 41341
+      northing: 112172
+      v4or5axlerigidhgv: 173
+      localauthority: "Devon"
+      road: "M5"
+      aadfyear: 2000
+      v3or4axleartichgv: 1014
+      easting: 303700
+      linklength_miles: 4.160000000000000142108547152020037174224853515625
+      motorcycles: 137
+      lightgoodsvehicles: 4851
+      cp: 6023
+      estimation_method_detailed: "Manual count"
+      v5axleartichgv: 1935
+      linklength_km: 6.70000000000000017763568394002504646778106689453125
+      endjunction: "27"
+      allhgvs: 7004
+      estimation_method: "Counted"
+      pedalcycles: 0
+      startjunction: "28"
+      v3axlerigidhgv: 398
+      region: "South West"
+      busescoaches: 384
